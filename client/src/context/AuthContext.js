@@ -3,17 +3,17 @@ import AuthReducer from "./AuthReducer";
 
 const INITIAL_STATE = {
   //Varianta finala
-  // user: JSON.parse(localStorage.getItem("user")) || null,
-  user: {
-    _id: "6258fe2ab0b6ca1759c215a6",
-    username: "Jane",
-    email: "jane@gmail.com",
-    profilePicture: "person/1.jpeg",
-    coverPicture: "",
-    isAdmin: false,
-    followers: [],
-    followings: [],
-  },
+  user: JSON.parse(localStorage.getItem("user")) || null,
+  // user: {
+  //   _id: "6258fe2ab0b6ca1759c215a6",
+  //   username: "Jane",
+  //   email: "jane@gmail.com",
+  //   profilePicture: "person/1.jpeg",
+  //   coverPicture: "",
+  //   isAdmin: false,
+  //   followers: [],
+  //   followings: [],
+  // },
   isFetching: false,
   error: false,
 };
