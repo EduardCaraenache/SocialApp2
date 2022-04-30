@@ -12,7 +12,7 @@ export default function Topbar() {
     <div className="topbarContainer">
       <div className="topbarLeft">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">Lamasocial</span>
+          <span className="logo">Our Space</span>
         </Link>
       </div>
       <div className="topbarCenter">
@@ -26,8 +26,12 @@ export default function Topbar() {
       </div>
       <div className="topbarRight">
         <div className="topbarLinks">
-          <span className="topbarLink">Homepage</span>
-          <span className="topbarLink">Timeline</span>
+          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+            <span className="topbarLink">Homepage</span>
+          </Link>
+          <Link to="/login" style={{ textDecoration: "none", color: "white" }}>
+            <span className="topbarLink">Logout</span>
+          </Link>
         </div>
         <div className="topbarIcons">
           <div className="topbarIconItem">
@@ -35,8 +39,13 @@ export default function Topbar() {
             <span className="topbarIconBadge">1</span>
           </div>
           <div className="topbarIconItem">
-            <Chat />
-            <span className="topbarIconBadge">2</span>
+            <Link
+              to="/messenger"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <Chat />
+              <span className="topbarIconBadge">2</span>
+            </Link>
           </div>
           <div className="topbarIconItem">
             <Notifications />

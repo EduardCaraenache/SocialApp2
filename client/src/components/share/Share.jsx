@@ -16,6 +16,8 @@ export default function Share() {
   const desc = useRef();
   const [file, setFile] = useState(null);
 
+  //Inca se poate posta postare fara continut
+
   const submitHandler = async (e) => {
     e.preventDefault();
     const newPost = {

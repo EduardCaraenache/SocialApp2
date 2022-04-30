@@ -11,6 +11,7 @@ const postRoute = require("./routes/posts");
 const conversationRoute = require("./routes/conversations");
 const messageRoute = require("./routes/messages");
 const path = require("path");
+const cors = require("cors");
 
 const https = require("https");
 const fs = require("fs");
@@ -34,6 +35,12 @@ mongoose.connect(
     console.log("Connected to MongoDB");
   }
 );
+
+// app.use(cors());
+
+// app.get("/images/:id", function (req, res, next) {
+//   res.json({ msg: "This is CORS-enabled for all origins" });
+// });
 
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 

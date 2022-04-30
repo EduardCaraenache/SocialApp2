@@ -16,15 +16,17 @@ export default function Rightbar({ user }) {
   );
 
   useEffect(() => {
-    const getFriends = async () => {
-      try {
-        const friendList = await axios.get("/users/friends/" + user._id);
-        setFriends(friendList.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getFriends();
+    if (user) {
+      const getFriends = async () => {
+        try {
+          const friendList = await axios.get("/users/friends/" + user._id);
+          setFriends(friendList.data);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      getFriends();
+    }
   }, [user]);
 
   const handleClick = async () => {
@@ -50,10 +52,13 @@ export default function Rightbar({ user }) {
         <div className="birthdayContainer">
           <img className="birthdayImg" src="assets/gift.png" alt="" />
           <span className="birthdayText">
-            <b>Pola Foster</b> and <b>3 other friends</b> have a birhday today.
+            <b>John</b> and <b>1 other friend</b> have a birhday today.
           </span>
         </div>
-        <img className="rightbarAd" src="assets/ad.png" alt="" />
+        <span className="birthdayText">
+          <b>"Birthdays" is a new feature to come</b>
+        </span>
+        <img className="rightbarAd" src="assets/welcome.png" alt="" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendList">
           {Users.map((u) => (
@@ -100,6 +105,7 @@ export default function Rightbar({ user }) {
             <Link
               to={"/profile/" + friend.username}
               style={{ textDecoration: "none" }}
+              key={friend._id}
             >
               <div className="rightbarFollowing">
                 <img
@@ -111,7 +117,12 @@ export default function Rightbar({ user }) {
                   alt=""
                   className="rightbarFollowingImg"
                 />
-                <span className="rightbarFollowingName">{friend.username}</span>
+                <span
+                  className="rightbarFollowingName"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  {friend.username}
+                </span>
               </div>
             </Link>
           ))}
